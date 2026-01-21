@@ -3,6 +3,10 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AXISO Studio - Calm, controlled audio built for focus and inner strength. Professional audio production studio.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiQVhJU08gU3R1ZGlvIiwic2hvcnRfbmFtZSI6IkFYSVNPIiwic3RhcnRfdXJsIjoiLyIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwiYmFja2dyb3VuZF9jb2xvciI6IiMwYTBhMGEiLCJ0aGVtZV9jb2xvciI6IiMwYTBhMGEiLCJkZXNjcmlwdGlvbiI6IlByb2Zlc3Npb25hbCBhdWRpbyBwcm9kdWN0aW9uIHN0dWRpbyIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDUxMiA1MTInJTNFJTNDcmVjdCB3aWR0aD0nNTEyJyBoZWlnaHQ9JzUxMicgZmlsbD0nJTIzMGEwYTBhJy8lM0UlM0N0ZXh0IHg9JzUwJTI1JyB5PSc1MCUyNScgZm9udC1mYW1pbHk9J0FyaWFsJyBmb250LXNpemU9JzIwMCcgZmlsbD0nJTIzZmZmZmZmJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBkb21pbmFudC1iYXNlbGluZT0nbWlkZGxlJyUzRUElM0MvdGV4dCUzRSUzQy9zdmclM0UiLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9LHsic3JjIjoiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxOTIgMTkyJyUzRSUzQ3JlY3Qgd2lkdGg9JzE5MicgaGVpZ2h0PScxOTInIGZpbGw9JyUyMzBhMGEwYScvJTNFJTNDdGV4dCB4PSc1MCUyNScgeT0nNTAlMjUnIGZvbnQtZmFtaWx5PSdBcmlhbCcgZm9udC1zaXplPSc4MCcgZmlsbD0nJTIzZmZmZmZmJyB0ZXh0LWFuY2hvcj0nbWlkZGxlJyBkb21pbmFudC1iYXNlbGluZT0nbWlkZGxlJyUzRUElM0MvdGV4dCUzRSUzQy9zdmclM0UiLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='80' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E">
   <title>AXISO Studio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/_sdk/element_sdk.js"></script>
@@ -475,6 +479,54 @@
       transition: transform 0.3s ease;
     }
     
+    #share-modal {
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    #share-modal .glass-effect {
+      animation: slideUp 0.3s ease;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .streaming-link {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .streaming-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .streaming-link:hover::before {
+      left: 100%;
+    }
+    
     .music-card {
       transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
@@ -740,7 +792,7 @@
    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect">
     <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6 flex justify-between items-center"><span id="nav-brand" class="text-sm md:text-base tracking-[0.25em] font-medium text-white">AXISO</span>
      <div class="flex items-center gap-4 md:gap-8">
-      <div class="flex gap-4 md:gap-12"><a href="#services" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">SERVICES</a> <a href="#approach" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">APPROACH</a> <a href="#contact" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">CONTACT</a>
+      <div class="flex gap-4 md:gap-12"><a href="#services" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">SERVICES</a> <a href="#approach" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">APPROACH</a> <a href="#referral" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">REFERRAL</a> <a href="#contact" class="nav-link text-[10px] md:text-xs tracking-[0.15em] md:tracking-[0.2em] text-white/60 hover:text-white transition-colors">CONTACT</a>
       </div><!-- Theme Toggle Button --> <button id="theme-toggle" class="theme-toggle-btn ml-2 md:ml-4 p-2 glass-effect hover:bg-white/10 rounded-full transition-all group" aria-label="Toggle theme">
        <svg class="theme-icon sun-icon w-4 h-4 md:w-5 md:h-5 text-white/60 group-hover:text-white transition-all" fill="none" stroke="currentColor" viewbox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
        </svg>
@@ -753,7 +805,7 @@
     <div class="max-w-7xl mx-auto w-full">
      <div class="max-w-4xl">
       <div class="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 fade-in-up stagger-1">
-       <div class="w-8 md:w-12 h-px bg-white/20"></div><span class="text-[9px] sm:text-[10px] md:text-xs tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-white/40">AUDIO STUDIO</span>
+       <div class="w-8 md:w-12 h-px bg-white/20"></div><span class="text-xs sm:text-sm md:text-base tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-white/40">AUDIO STUDIO</span>
       </div>
       <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-light tracking-tight mb-6 md:mb-8 text-white leading-[0.95] fade-in-up stagger-2 floating-3d">AXISO Studio</h1>
       <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-light text-white/60 tracking-wide leading-relaxed max-w-2xl fade-in-up stagger-3">Calm, controlled audio built for focus and inner strength.</p>
@@ -845,7 +897,9 @@
        <h3 id="track-one-title" class="text-base sm:text-lg md:text-xl font-medium text-white mb-1 md:mb-2 tracking-wide">Deep Focus</h3>
        <p id="track-one-artist" class="text-xs md:text-sm text-white/50 mb-4 md:mb-6">AXISO Studio</p><button class="play-btn w-full py-2 sm:py-2.5 md:py-3 glass-effect hover:bg-white/10 transition-all text-white text-[10px] md:text-xs tracking-[0.15em] flex items-center justify-center gap-2 rounded font-medium">
         <svg class="w-3 h-3 md:w-4 md:h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
-        </svg> PLAY TRACK </button>
+        </svg> PLAY TRACK </button> <button class="share-btn mt-2 w-full py-2 glass-effect hover:bg-white/10 transition-all text-white/60 hover:text-white text-[10px] tracking-[0.15em] flex items-center justify-center gap-2 rounded font-medium">
+        <svg class="w-3 h-3" fill="currentColor" viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+        </svg> SHARE </button>
       </div><!-- Track 2 -->
       <div class="observe-fade glass-effect p-5 sm:p-6 md:p-8 rounded-lg music-card relative">
        <div class="track-number absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-[10px] md:text-xs font-light text-white/60">
@@ -869,7 +923,9 @@
        <h3 id="track-two-title" class="text-base sm:text-lg md:text-xl font-medium text-white mb-1 md:mb-2 tracking-wide">Midnight Drive</h3>
        <p id="track-two-artist" class="text-xs md:text-sm text-white/50 mb-4 md:mb-6">AXISO Studio</p><button class="play-btn w-full py-2 sm:py-2.5 md:py-3 glass-effect hover:bg-white/10 transition-all text-white text-[10px] md:text-xs tracking-[0.15em] flex items-center justify-center gap-2 rounded font-medium">
         <svg class="w-3 h-3 md:w-4 md:h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
-        </svg> PLAY TRACK </button>
+        </svg> PLAY TRACK </button> <button class="share-btn mt-2 w-full py-2 glass-effect hover:bg-white/10 transition-all text-white/60 hover:text-white text-[10px] tracking-[0.15em] flex items-center justify-center gap-2 rounded font-medium">
+        <svg class="w-3 h-3" fill="currentColor" viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+        </svg> SHARE </button>
       </div><!-- Track 3 -->
       <div class="observe-fade glass-effect p-5 sm:p-6 md:p-8 rounded-lg music-card relative">
        <div class="track-number absolute top-3 right-3 md:top-4 md:right-4 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-[10px] md:text-xs font-light text-white/60">
@@ -893,7 +949,22 @@
        <h3 id="track-three-title" class="text-base sm:text-lg md:text-xl font-medium text-white mb-1 md:mb-2 tracking-wide">Inner Calm</h3>
        <p id="track-three-artist" class="text-xs md:text-sm text-white/50 mb-4 md:mb-6">AXISO Studio</p><button class="play-btn w-full py-2 sm:py-2.5 md:py-3 glass-effect hover:bg-white/10 transition-all text-white text-[10px] md:text-xs tracking-[0.15em] flex items-center justify-center gap-2 rounded font-medium">
         <svg class="w-3 h-3 md:w-4 md:h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
-        </svg> PLAY TRACK </button>
+        </svg> PLAY TRACK </button> <button class="share-btn mt-2 w-full py-2 glass-effect hover:bg-white/10 transition-all text-white/60 hover:text-white text-[10px] tracking-[0.15em] flex items-center justify-center gap-2 rounded font-medium">
+        <svg class="w-3 h-3" fill="currentColor" viewbox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+        </svg> SHARE </button>
+      </div>
+     </div><!-- Streaming Platform Links -->
+     <div class="mt-6 sm:mt-8 md:mt-12 observe-fade">
+      <h3 class="text-xs tracking-wider text-white/40 mb-4 md:mb-6">LISTEN ON</h3>
+      <div class="flex flex-wrap gap-3 md:gap-4"><a id="spotify-link" href="https://open.spotify.com/artist/0OdUWJ0sBjDrqHygGUXeCF" target="_blank" rel="noopener noreferrer" class="streaming-link glass-effect px-4 md:px-6 py-2.5 md:py-3 rounded-lg hover:bg-white/10 transition-all flex items-center gap-2 md:gap-3 group">
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-white/60 group-hover:text-white transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+        </svg><span class="text-[10px] md:text-xs tracking-wider text-white/60 group-hover:text-white transition-colors">SPOTIFY</span> </a> <a id="soundcloud-link" href="https://soundcloud.com/axiso-studio" target="_blank" rel="noopener noreferrer" class="streaming-link glass-effect px-4 md:px-6 py-2.5 md:py-3 rounded-lg hover:bg-white/10 transition-all flex items-center gap-2 md:gap-3 group">
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-white/60 group-hover:text-white transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.255-2.154c-.009-.057-.049-.1-.099-.1zm1.138.164c-.058 0-.102.048-.113.106l-.214 1.891.214 1.839c.011.06.055.098.113.098.056 0 .099-.038.112-.098l.239-1.839-.239-1.891c-.013-.058-.056-.106-.112-.106zm1.188-.131c-.061 0-.108.049-.117.111l-.193 1.826.193 1.777c.009.062.056.111.117.111.061 0 .108-.049.117-.111l.215-1.777-.215-1.826c-.009-.062-.056-.111-.117-.111zm1.187-.031c-.063 0-.111.05-.123.111l-.177 1.796.177 1.726c.012.062.06.111.123.111.061 0 .111-.049.122-.111l.198-1.726-.198-1.796c-.011-.061-.061-.111-.122-.111zm1.166.006c-.062 0-.113.051-.123.113l-.161 1.789.161 1.725c.01.062.061.114.123.114.063 0 .114-.052.125-.114l.178-1.725-.178-1.789c-.011-.062-.062-.113-.125-.113zm1.165.009c-.064 0-.114.051-.127.114l-.145 1.78.145 1.712c.013.063.063.115.127.115.064 0 .115-.052.128-.115l.163-1.712-.163-1.78c-.013-.063-.064-.114-.128-.114zm1.165.009c-.064 0-.116.052-.127.115l-.133 1.77.133 1.708c.011.064.063.116.127.116.064 0 .116-.052.129-.116l.148-1.708-.148-1.77c-.013-.063-.065-.115-.129-.115zm1.163.014c-.065 0-.117.052-.131.116l-.117 1.757.117 1.698c.014.064.066.117.131.117.065 0 .119-.053.131-.117l.132-1.698-.132-1.757c-.012-.064-.066-.116-.131-.116zm1.164.01c-.065 0-.119.053-.131.117l-.105 1.747.105 1.688c.012.065.066.118.131.118.066 0 .119-.053.132-.118l.119-1.688-.119-1.747c-.013-.064-.066-.117-.132-.117zm1.163.014c-.066 0-.119.054-.132.118l-.092 1.733.092 1.675c.013.066.066.119.132.119.065 0 .119-.053.132-.119l.105-1.675-.105-1.733c-.013-.064-.067-.118-.132-.118zm1.162.014c-.066 0-.12.054-.133.119l-.078 1.718.078 1.666c.013.066.067.119.133.119.066 0 .12-.053.134-.119l.091-1.666-.091-1.718c-.014-.065-.068-.119-.134-.119zm1.163.01c-.067 0-.121.054-.135.119l-.064 1.708.064 1.653c.014.067.068.121.135.121.067 0 .122-.054.135-.121l.078-1.653-.078-1.708c-.013-.065-.068-.119-.135-.119zm1.163.015c-.067 0-.122.055-.136.12l-.049 1.693.049 1.641c.014.067.069.121.136.121.068 0 .123-.054.137-.121l.063-1.641-.063-1.693c-.014-.065-.069-.12-.137-.12zm1.162.016c-.068 0-.123.055-.137.121l-.035 1.677.035 1.627c.014.068.069.122.137.122.068 0 .124-.054.138-.122l.048-1.627-.048-1.677c-.014-.066-.07-.121-.138-.121zm1.163.014c-.069 0-.124.056-.139.122l-.02 1.663.02 1.614c.015.069.07.123.139.123.068 0 .124-.054.139-.123l.034-1.614-.034-1.663c-.015-.066-.071-.122-.139-.122zm1.163.018c-.069 0-.125.056-.14.123l-.006 1.645.006 1.601c.015.069.071.124.14.124.069 0 .125-.055.141-.124l.019-1.601-.019-1.645c-.016-.067-.072-.123-.141-.123z" />
+        </svg><span class="text-[10px] md:text-xs tracking-wider text-white/60 group-hover:text-white transition-colors">SOUNDCLOUD</span> </a> <a id="apple-music-link" href="https://music.apple.com/" target="_blank" rel="noopener noreferrer" class="streaming-link glass-effect px-4 md:px-6 py-2.5 md:py-3 rounded-lg hover:bg-white/10 transition-all flex items-center gap-2 md:gap-3 group">
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-white/60 group-hover:text-white transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M23.997 6.124c0-.738-.065-1.47-.24-2.19-.317-1.31-1.062-2.31-2.18-3.043C21.003.517 20.373.285 19.7.164c-.517-.093-1.038-.135-1.564-.15-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208c-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 0 0 1.57-.1c.822-.106 1.596-.35 2.296-.81a5.046 5.046 0 0 0 1.88-2.207c.186-.42.293-.87.363-1.324.065-.42.092-.843.1-1.267.003-.043.007-.086.01-.13V6.124zM7.874 6.53c.413-.598.997-.99 1.748-1.142.28-.057.562-.074.846-.065.885.03 1.56.413 2.027 1.154.16.255.25.54.294.838.025.167.033.333.018.5-.01.124-.087.202-.2.202-.11 0-.192-.075-.207-.194-.024-.193-.053-.386-.116-.568-.21-.61-.6-1.04-1.2-1.26-.473-.173-.96-.188-1.45-.06-.73.19-1.232.62-1.49 1.334-.144.397-.167.806-.124 1.222.05.475.22.912.495 1.297.25.35.565.626.94.833.442.243.912.414 1.4.535.88.22 1.74.47 2.533.904.85.465 1.458 1.117 1.772 2.01.208.59.28 1.197.24 1.817-.04.655-.22 1.27-.57 1.82-.4.64-.94 1.1-1.64 1.355-.87.317-1.77.39-2.68.255-.742-.11-1.42-.4-2.01-.87-.48-.383-.86-.86-1.085-1.438-.113-.29-.18-.59-.213-.898-.01-.098.04-.177.13-.213.09-.036.18-.01.24.068.02.028.038.058.053.088.18.362.386.708.65 1.012.517.596 1.15.984 1.926 1.14.61.123 1.226.13 1.84.02.605-.107 1.137-.38 1.54-.854.36-.425.553-.923.6-1.475.046-.55-.01-1.085-.246-1.592-.296-.636-.77-1.12-1.4-1.442-.47-.24-.97-.405-1.48-.538-.54-.14-1.083-.276-1.615-.44-.622-.19-1.215-.44-1.752-.82-.58-.41-1.016-.94-1.27-1.603-.24-.627-.3-1.277-.183-1.94.117-.664.413-1.234.882-1.704zm9.366 10.047c-.065-.457-.223-.88-.54-1.233-.14-.155-.15-.31-.015-.477.133-.163.298-.15.465-.002.37.327.604.74.728 1.205.09.337.123.68.13 1.025.005.254-.01.506-.035.758-.01.097-.063.16-.16.164-.1.005-.156-.052-.172-.15-.036-.22-.062-.442-.1-.663z" />
+        </svg><span class="text-[10px] md:text-xs tracking-wider text-white/60 group-hover:text-white transition-colors">APPLE MUSIC</span> </a> <a id="youtube-link" href="https://youtube.com/@axisostudio" target="_blank" rel="noopener noreferrer" class="streaming-link glass-effect px-4 md:px-6 py-2.5 md:py-3 rounded-lg hover:bg-white/10 transition-all flex items-center gap-2 md:gap-3 group">
+        <svg class="w-4 h-4 md:w-5 md:h-5 text-white/60 group-hover:text-white transition-colors" fill="currentColor" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg><span class="text-[10px] md:text-xs tracking-wider text-white/60 group-hover:text-white transition-colors">YOUTUBE</span> </a>
       </div>
      </div><!-- Now Playing Bar (Demo UI) -->
      <div class="mt-6 sm:mt-8 md:mt-16 observe-fade glass-effect p-4 sm:p-5 md:p-6 rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -913,7 +984,7 @@
       </div>
       <div class="flex items-center gap-2.5 sm:gap-3 md:gap-4 justify-center w-full sm:w-auto"><button class="p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-all">
         <svg class="w-4 h-4 md:w-5 md:h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z" />
-        </svg></button> <button class="p-2 sm:p-2.5 md:p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all">
+        </svg></button> <button id="now-playing-toggle" class="p-2 sm:p-2.5 md:p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all">
         <svg class="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z" />
         </svg></button> <button class="p-1.5 sm:p-2 hover:bg-white/10 rounded-full transition-all">
         <svg class="w-4 h-4 md:w-5 md:h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
@@ -1037,6 +1108,84 @@
       </div>
      </div>
     </div>
+   </section><!-- Referral Program Section -->
+   <section id="referral" class="py-12 sm:py-16 md:py-32 px-6 sm:px-8 md:px-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+     <div class="observe-fade text-center mb-8 sm:mb-12 md:mb-16"><span class="section-number text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light">06</span>
+      <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white mt-2 sm:mt-3 md:mt-4 mb-4 sm:mb-6 tracking-tight">Referral Program</h2>
+      <p id="referral-description" class="text-white/50 text-sm sm:text-base md:text-lg font-light max-w-2xl mx-auto">Refer a friend and you both get rewarded</p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 max-w-5xl mx-auto"><!-- Referral Form -->
+      <div class="observe-fade glass-effect p-6 sm:p-8 md:p-10 rounded-lg">
+       <div class="flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+         <svg class="w-5 h-5 md:w-6 md:h-6 text-white/80" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+         </svg>
+        </div>
+        <h3 class="text-lg sm:text-xl font-medium text-white">Refer a Client</h3>
+       </div>
+       <form id="referral-form" class="space-y-4 sm:space-y-5">
+        <div><label for="referrer-name" class="text-[10px] sm:text-xs tracking-wider text-white/40 mb-2 block">YOUR NAME</label> <input type="text" id="referrer-name" name="referrer-name" placeholder="Your name" class="form-input w-full py-2.5 text-white/90 tracking-wide text-sm" required>
+        </div>
+        <div><label for="referrer-email" class="text-[10px] sm:text-xs tracking-wider text-white/40 mb-2 block">YOUR EMAIL</label> <input type="email" id="referrer-email" name="referrer-email" placeholder="your@email.com" class="form-input w-full py-2.5 text-white/90 tracking-wide text-sm" required>
+        </div>
+        <div><label for="referee-name" class="text-[10px] sm:text-xs tracking-wider text-white/40 mb-2 block">FRIEND'S NAME</label> <input type="text" id="referee-name" name="referee-name" placeholder="Friend's name" class="form-input w-full py-2.5 text-white/90 tracking-wide text-sm" required>
+        </div>
+        <div><label for="referee-email" class="text-[10px] sm:text-xs tracking-wider text-white/40 mb-2 block">FRIEND'S EMAIL</label> <input type="email" id="referee-email" name="referee-email" placeholder="friend@email.com" class="form-input w-full py-2.5 text-white/90 tracking-wide text-sm" required>
+        </div><button type="submit" class="submit-btn w-full py-3 text-[10px] sm:text-xs tracking-[0.2em] font-medium"> Send Referral </button>
+        <p id="referral-status" class="text-xs sm:text-sm text-white/60 hidden"></p>
+       </form>
+      </div><!-- Referral Benefits -->
+      <div class="observe-fade space-y-6">
+       <div class="glass-effect p-6 sm:p-8 rounded-lg">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <svg class="w-5 h-5 text-white/80" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+         </div>
+         <div>
+          <h4 class="text-base sm:text-lg font-medium text-white mb-2">You Get Rewarded</h4>
+          <p id="referral-reward-yours" class="text-xs sm:text-sm text-white/50 leading-relaxed">20% off next session</p>
+         </div>
+        </div>
+       </div>
+       <div class="glass-effect p-6 sm:p-8 rounded-lg">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <svg class="w-5 h-5 text-white/80" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+         </div>
+         <div>
+          <h4 class="text-base sm:text-lg font-medium text-white mb-2">They Get Rewarded</h4>
+          <p id="referral-reward-theirs" class="text-xs sm:text-sm text-white/50 leading-relaxed">20% off next session</p>
+         </div>
+        </div>
+       </div>
+       <div class="glass-effect p-6 sm:p-8 rounded-lg">
+        <div class="flex items-start gap-4 mb-4">
+         <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+          <svg class="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+         </div>
+         <div>
+          <h4 class="text-base sm:text-lg font-medium text-white mb-2">Instant Activation</h4>
+          <p class="text-xs sm:text-sm text-white/50 leading-relaxed">Rewards activate when your friend books their first session</p>
+         </div>
+        </div>
+       </div><!-- Unique Referral Link -->
+       <div class="glass-effect p-6 sm:p-8 rounded-lg border border-white/10">
+        <div class="text-[10px] sm:text-xs tracking-wider text-white/40 mb-3">
+         YOUR UNIQUE REFERRAL LINK
+        </div>
+        <div class="flex items-center gap-2"><input type="text" id="referral-link" value="https://axisostudio.com/ref/YOUR-CODE" readonly class="form-input flex-1 py-2 text-white/70 tracking-wide text-xs bg-white/5 cursor-pointer"> <button id="copy-referral-btn" class="glass-effect hover:bg-white/10 px-4 py-2 rounded transition-all flex-shrink-0">
+          <svg class="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+          </svg></button>
+        </div>
+        <p id="copy-referral-status" class="text-[10px] text-white/40 mt-2 hidden">Link copied to clipboard!</p>
+       </div>
+      </div>
+     </div>
+    </div>
    </section><!-- Footer -->
    <footer class="py-8 sm:py-10 md:py-12 lg:py-16 px-6 sm:px-8 md:px-8 border-t border-white/5 glass-effect">
     <div class="max-w-7xl mx-auto">
@@ -1050,6 +1199,24 @@
      </div>
     </div>
    </footer>
+  </div><!-- Share Modal -->
+  <div id="share-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
+   <div class="glass-effect max-w-md w-full p-6 md:p-8 rounded-lg relative animate-fade-in"><button id="close-share-modal" class="absolute top-4 right-4 text-white/60 hover:text-white transition-colors">
+     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+     </svg></button>
+    <h3 class="text-2xl font-light mb-2 text-white">Share Track</h3>
+    <p id="share-track-name" class="text-sm text-white/60 mb-6">Deep Focus</p>
+    <div class="space-y-3"><button class="share-social-btn w-full py-3 glass-effect hover:bg-white/10 transition-all text-white text-xs tracking-wider flex items-center gap-3 rounded px-4">
+      <svg class="w-5 h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+      </svg><span>Share on Twitter</span> </button> <button class="share-social-btn w-full py-3 glass-effect hover:bg-white/10 transition-all text-white text-xs tracking-wider flex items-center gap-3 rounded px-4">
+      <svg class="w-5 h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg><span>Share on Facebook</span> </button> <button class="share-social-btn w-full py-3 glass-effect hover:bg-white/10 transition-all text-white text-xs tracking-wider flex items-center gap-3 rounded px-4">
+      <svg class="w-5 h-5 text-white/60" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg><span>Share on LinkedIn</span> </button> <button id="copy-link-btn" class="w-full py-3 glass-effect hover:bg-white/10 transition-all text-white text-xs tracking-wider flex items-center gap-3 rounded px-4">
+      <svg class="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg><span id="copy-link-text">Copy Link</span> </button>
+    </div>
+   </div>
   </div>
   <script>
     const defaultConfig = {
@@ -1063,9 +1230,15 @@
       track_two_artist: 'AXISO Studio',
       track_three_title: 'Inner Calm',
       track_three_artist: 'AXISO Studio',
+      spotify_url: 'https://open.spotify.com/artist/0OdUWJ0sBjDrqHygGUXeCF',
+      soundcloud_url: 'https://soundcloud.com/axiso-studio',
+      apple_music_url: 'https://music.apple.com/',
+      youtube_url: 'https://youtube.com/@axisostudio',
       philosophy_one: '"Strength is built in silence."',
       philosophy_two: '"Calm is control."',
       philosophy_three: '"Discipline creates clarity."',
+      referral_reward: '20% off next session',
+      referral_description: 'Refer a friend and you both get rewarded',
       contact_heading: 'For collaborations and inquiries',
       footer_copyright: '© 2024 All rights reserved.',
       background_color: '#0a0a0a',
@@ -1163,8 +1336,15 @@
       const philosophyOne = document.getElementById('philosophy-one');
       const philosophyTwo = document.getElementById('philosophy-two');
       const philosophyThree = document.getElementById('philosophy-three');
+      const referralDescription = document.getElementById('referral-description');
+      const referralRewardYours = document.getElementById('referral-reward-yours');
+      const referralRewardTheirs = document.getElementById('referral-reward-theirs');
       const contactHeading = document.getElementById('contact-heading');
       const footerCopyright = document.getElementById('footer-copyright');
+      const spotifyLink = document.getElementById('spotify-link');
+      const soundcloudLink = document.getElementById('soundcloud-link');
+      const appleMusicLink = document.getElementById('apple-music-link');
+      const youtubeLink = document.getElementById('youtube-link');
       
       if (heroTitle) heroTitle.textContent = cfg.hero_title || defaultConfig.hero_title;
       if (heroSubtitle) heroSubtitle.textContent = cfg.hero_subtitle || defaultConfig.hero_subtitle;
@@ -1179,8 +1359,15 @@
       if (philosophyOne) philosophyOne.textContent = cfg.philosophy_one || defaultConfig.philosophy_one;
       if (philosophyTwo) philosophyTwo.textContent = cfg.philosophy_two || defaultConfig.philosophy_two;
       if (philosophyThree) philosophyThree.textContent = cfg.philosophy_three || defaultConfig.philosophy_three;
+      if (referralDescription) referralDescription.textContent = cfg.referral_description || defaultConfig.referral_description;
+      if (referralRewardYours) referralRewardYours.textContent = cfg.referral_reward || defaultConfig.referral_reward;
+      if (referralRewardTheirs) referralRewardTheirs.textContent = cfg.referral_reward || defaultConfig.referral_reward;
       if (contactHeading) contactHeading.textContent = cfg.contact_heading || defaultConfig.contact_heading;
       if (footerCopyright) footerCopyright.textContent = cfg.footer_copyright || defaultConfig.footer_copyright;
+      if (spotifyLink) spotifyLink.href = cfg.spotify_url || defaultConfig.spotify_url;
+      if (soundcloudLink) soundcloudLink.href = cfg.soundcloud_url || defaultConfig.soundcloud_url;
+      if (appleMusicLink) appleMusicLink.href = cfg.apple_music_url || defaultConfig.apple_music_url;
+      if (youtubeLink) youtubeLink.href = cfg.youtube_url || defaultConfig.youtube_url;
 
       const bgColor = cfg.background_color || defaultConfig.background_color;
       const textColor = cfg.text_color || defaultConfig.text_color;
@@ -1265,9 +1452,15 @@
         ['track_two_artist', cfg.track_two_artist || defaultConfig.track_two_artist],
         ['track_three_title', cfg.track_three_title || defaultConfig.track_three_title],
         ['track_three_artist', cfg.track_three_artist || defaultConfig.track_three_artist],
+        ['spotify_url', cfg.spotify_url || defaultConfig.spotify_url],
+        ['soundcloud_url', cfg.soundcloud_url || defaultConfig.soundcloud_url],
+        ['apple_music_url', cfg.apple_music_url || defaultConfig.apple_music_url],
+        ['youtube_url', cfg.youtube_url || defaultConfig.youtube_url],
         ['philosophy_one', cfg.philosophy_one || defaultConfig.philosophy_one],
         ['philosophy_two', cfg.philosophy_two || defaultConfig.philosophy_two],
         ['philosophy_three', cfg.philosophy_three || defaultConfig.philosophy_three],
+        ['referral_reward', cfg.referral_reward || defaultConfig.referral_reward],
+        ['referral_description', cfg.referral_description || defaultConfig.referral_description],
         ['contact_heading', cfg.contact_heading || defaultConfig.contact_heading],
         ['footer_copyright', cfg.footer_copyright || defaultConfig.footer_copyright]
       ]);
@@ -1525,29 +1718,325 @@
       }, 4000);
     });
 
+    // Referral Form Handling
+    const referralForm = document.getElementById('referral-form');
+    const referralStatus = document.getElementById('referral-status');
+    
+    referralForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const referrerName = document.getElementById('referrer-name').value;
+      const refereeName = document.getElementById('referee-name').value;
+      
+      referralStatus.classList.remove('hidden');
+      referralStatus.textContent = `Referral sent! We'll contact ${refereeName} and notify you when they book.`;
+      referralStatus.style.color = 'rgba(255,255,255,0.7)';
+      
+      referralForm.reset();
+      
+      setTimeout(() => {
+        referralStatus.classList.add('hidden');
+      }, 6000);
+    });
+
+    // Copy Referral Link
+    const copyReferralBtn = document.getElementById('copy-referral-btn');
+    const copyReferralStatus = document.getElementById('copy-referral-status');
+    const referralLink = document.getElementById('referral-link');
+    
+    copyReferralBtn.addEventListener('click', function() {
+      referralLink.select();
+      referralLink.setSelectionRange(0, 99999); // For mobile devices
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(referralLink.value).then(() => {
+          copyReferralStatus.classList.remove('hidden');
+          setTimeout(() => {
+            copyReferralStatus.classList.add('hidden');
+          }, 3000);
+        }).catch(() => {
+          fallbackCopyReferralText(referralLink.value);
+        });
+      } else {
+        fallbackCopyReferralText(referralLink.value);
+      }
+    });
+    
+    function fallbackCopyReferralText(text) {
+      try {
+        document.execCommand('copy');
+        copyReferralStatus.classList.remove('hidden');
+        setTimeout(() => {
+          copyReferralStatus.classList.add('hidden');
+        }, 3000);
+      } catch (err) {
+        copyReferralStatus.textContent = 'Copy failed. Please select and copy manually.';
+        copyReferralStatus.classList.remove('hidden');
+        setTimeout(() => {
+          copyReferralStatus.textContent = 'Link copied to clipboard!';
+          copyReferralStatus.classList.add('hidden');
+        }, 3000);
+      }
+    }
+    
+    // PWA Install Prompt
+    let deferredPrompt;
+    const installPromptShown = localStorage.getItem('pwa-install-prompted');
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      
+      // Show custom install prompt if not shown before
+      if (!installPromptShown) {
+        showInstallPrompt();
+      }
+    });
+    
+    function showInstallPrompt() {
+      const installBanner = document.createElement('div');
+      installBanner.id = 'pwa-install-banner';
+      installBanner.className = 'fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md glass-effect p-4 md:p-6 rounded-lg z-50 animate-fade-in';
+      installBanner.innerHTML = `
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h4 class="text-sm md:text-base font-medium text-white mb-1">Install AXISO Studio</h4>
+            <p class="text-xs text-white/60 mb-3">Add to your home screen for quick access</p>
+            <div class="flex gap-2">
+              <button id="pwa-install-btn" class="submit-btn px-4 py-2 text-[10px] tracking-wider">Install</button>
+              <button id="pwa-dismiss-btn" class="glass-effect hover:bg-white/10 px-4 py-2 text-[10px] tracking-wider text-white/60 hover:text-white transition-all rounded">Later</button>
+            </div>
+          </div>
+          <button id="pwa-close-btn" class="text-white/40 hover:text-white transition-colors flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      `;
+      
+      document.body.appendChild(installBanner);
+      
+      // Install button handler
+      document.getElementById('pwa-install-btn').addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          deferredPrompt = null;
+          installBanner.remove();
+          localStorage.setItem('pwa-install-prompted', 'true');
+        }
+      });
+      
+      // Dismiss button handler
+      document.getElementById('pwa-dismiss-btn').addEventListener('click', () => {
+        installBanner.remove();
+        localStorage.setItem('pwa-install-prompted', 'true');
+      });
+      
+      // Close button handler
+      document.getElementById('pwa-close-btn').addEventListener('click', () => {
+        installBanner.remove();
+        localStorage.setItem('pwa-install-prompted', 'true');
+      });
+    }
+    
+    // Detect if app is installed
+    window.addEventListener('appinstalled', () => {
+      console.log('AXISO Studio installed successfully');
+      localStorage.setItem('pwa-installed', 'true');
+    });
+
+    // Share Modal Functionality
+    const shareModal = document.getElementById('share-modal');
+    const closeShareModal = document.getElementById('close-share-modal');
+    const shareTrackName = document.getElementById('share-track-name');
+    const copyLinkBtn = document.getElementById('copy-link-btn');
+    const copyLinkText = document.getElementById('copy-link-text');
+    const shareButtons = document.querySelectorAll('.share-btn');
+    const shareSocialBtns = document.querySelectorAll('.share-social-btn');
+    
+    let currentShareTrack = { title: '', artist: '' };
+    
+    shareButtons.forEach((btn, index) => {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const trackCard = btn.closest('.music-card');
+        const title = trackCard.querySelector('h3').textContent;
+        const artist = trackCard.querySelector('p').textContent;
+        
+        currentShareTrack = { title, artist };
+        shareTrackName.textContent = `${title} - ${artist}`;
+        shareModal.classList.remove('hidden');
+        shareModal.classList.add('flex');
+      });
+    });
+    
+    closeShareModal.addEventListener('click', function() {
+      shareModal.classList.add('hidden');
+      shareModal.classList.remove('flex');
+    });
+    
+    shareModal.addEventListener('click', function(e) {
+      if (e.target === shareModal) {
+        shareModal.classList.add('hidden');
+        shareModal.classList.remove('flex');
+      }
+    });
+    
+    // Social media sharing
+    shareSocialBtns.forEach((btn, index) => {
+      btn.addEventListener('click', function() {
+        const shareText = `Check out "${currentShareTrack.title}" by ${currentShareTrack.artist} from AXISO Studio`;
+        const shareUrl = window.location.href;
+        
+        let socialUrl = '';
+        if (index === 0) { // Twitter
+          socialUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        } else if (index === 1) { // Facebook
+          socialUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        } else if (index === 2) { // LinkedIn
+          socialUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+        }
+        
+        if (socialUrl) {
+          window.open(socialUrl, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+    
+    // Copy link functionality
+    copyLinkBtn.addEventListener('click', function() {
+      const shareUrl = window.location.href;
+      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          copyLinkText.textContent = 'Link Copied!';
+          setTimeout(() => {
+            copyLinkText.textContent = 'Copy Link';
+          }, 2000);
+        }).catch(() => {
+          fallbackCopyText(shareUrl);
+        });
+      } else {
+        fallbackCopyText(shareUrl);
+      }
+    });
+    
+    function fallbackCopyText(text) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        copyLinkText.textContent = 'Link Copied!';
+        setTimeout(() => {
+          copyLinkText.textContent = 'Copy Link';
+        }, 2000);
+      } catch (err) {
+        copyLinkText.textContent = 'Copy Failed';
+        setTimeout(() => {
+          copyLinkText.textContent = 'Copy Link';
+        }, 2000);
+      }
+      document.body.removeChild(textArea);
+    }
+    
     // Music Player Demo Interactions
     const playButtons = document.querySelectorAll('.play-btn');
+    const nowPlayingToggle = document.getElementById('now-playing-toggle');
+    let currentlyPlayingButton = null;
+    let isPlaying = false;
+    
+    // Store current track info
+    let currentTrackTitle = '';
+    let currentTrackArtist = '';
+    
+    function updateNowPlayingBar(title, artist) {
+      const nowPlayingTitle = document.querySelector('.glass-effect.p-6 .text-white.text-sm');
+      const nowPlayingArtist = document.querySelector('.glass-effect.p-6 .text-white\\/40.text-xs');
+      
+      if (nowPlayingTitle) nowPlayingTitle.textContent = title;
+      if (nowPlayingArtist) nowPlayingArtist.textContent = artist;
+    }
+    
+    function updateNowPlayingToggle(playing) {
+      if (!nowPlayingToggle) return;
+      
+      if (playing) {
+        nowPlayingToggle.innerHTML = `<svg class="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>`;
+      } else {
+        nowPlayingToggle.innerHTML = `<svg class="w-5 h-5 md:w-6 md:h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>`;
+      }
+    }
+    
     playButtons.forEach((btn, index) => {
       btn.addEventListener('click', function() {
         const trackTitle = btn.parentElement.querySelector('h3').textContent;
         const trackArtist = btn.parentElement.querySelector('p').textContent;
+        const isCurrentlyPlaying = btn === currentlyPlayingButton;
         
-        // Update now playing bar (demo only - no actual audio playback)
-        const nowPlayingTitle = document.querySelector('.glass-effect.p-6 .text-white.text-sm');
-        const nowPlayingArtist = document.querySelector('.glass-effect.p-6 .text-white\\/40.text-xs');
-        
-        if (nowPlayingTitle) nowPlayingTitle.textContent = trackTitle;
-        if (nowPlayingArtist) nowPlayingArtist.textContent = trackArtist;
-        
-        // Visual feedback
-        playButtons.forEach(b => {
-          b.innerHTML = `<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PLAY TRACK`;
-        });
-        
-        btn.innerHTML = `<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg> PLAYING`;
-        btn.classList.add('bg-white/10');
+        if (isCurrentlyPlaying) {
+          // Pause the current track
+          btn.innerHTML = `<svg class="w-4 h-4 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PLAY TRACK`;
+          btn.classList.remove('bg-white/10');
+          currentlyPlayingButton = null;
+          isPlaying = false;
+          
+          updateNowPlayingBar('No track playing', 'Select a track above');
+          updateNowPlayingToggle(false);
+        } else {
+          // Reset all other buttons
+          playButtons.forEach(b => {
+            b.innerHTML = `<svg class="w-4 h-4 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PLAY TRACK`;
+            b.classList.remove('bg-white/10');
+          });
+          
+          // Play this track
+          currentTrackTitle = trackTitle;
+          currentTrackArtist = trackArtist;
+          updateNowPlayingBar(trackTitle, trackArtist);
+          
+          btn.innerHTML = `<svg class="w-4 h-4 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg> PAUSE TRACK`;
+          btn.classList.add('bg-white/10');
+          currentlyPlayingButton = btn;
+          isPlaying = true;
+          updateNowPlayingToggle(true);
+        }
       });
     });
+    
+    // Now Playing Bar Toggle Button
+    if (nowPlayingToggle) {
+      nowPlayingToggle.addEventListener('click', function() {
+        if (!currentlyPlayingButton) {
+          // No track is loaded
+          return;
+        }
+        
+        if (isPlaying) {
+          // Pause the track
+          currentlyPlayingButton.innerHTML = `<svg class="w-3 h-3 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PLAY TRACK`;
+          currentlyPlayingButton.classList.remove('bg-white/10');
+          isPlaying = false;
+          updateNowPlayingToggle(false);
+        } else {
+          // Resume the track
+          currentlyPlayingButton.innerHTML = `<svg class="w-3 h-3 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg> PAUSE TRACK`;
+          currentlyPlayingButton.classList.add('bg-white/10');
+          isPlaying = true;
+          updateNowPlayingToggle(true);
+        }
+      });
+    }
 
     // Intersection Observer for scroll animations
     const observerOptions = {
@@ -1685,5 +2174,5 @@
       eqAnimationFrame = requestAnimationFrame(animateEqualizer);
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c172ce614918985',t:'MTc2OTAwMjMyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c1841f205ef8985',t:'MTc2OTAxMzY3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
